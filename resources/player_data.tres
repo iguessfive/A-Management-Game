@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="Player" load_steps=17 format=3 uid="uid://cpwqm8j5d0dob"]
+
+[ext_resource type="Script" path="res://resource_scripts/player.gd" id="1_655d7"]
+[ext_resource type="Texture2D" uid="uid://d2k0ikkc2128v" path="res://assets/mineral_icons/duskenite.png" id="2_8ae17"]
+[ext_resource type="Script" path="res://resource_scripts/mineral_item.gd" id="2_soh4v"]
+[ext_resource type="Texture2D" uid="uid://rt7hw0cbt2oe" path="res://assets/mineral_icons/jarosite.png" id="4_tadpu"]
+[ext_resource type="Texture2D" uid="uid://dkw1i77pyvv4p" path="res://assets/mineral_icons/moldavite.png" id="5_ijxfi"]
+[ext_resource type="Texture2D" uid="uid://dnsxjnp2smktw" path="res://assets/mineral_icons/pallasite.png" id="6_hxi58"]
+[ext_resource type="Texture2D" uid="uid://lxiwdknwg8gq" path="res://assets/mineral_icons/zyronite.png" id="7_f3act"]
+[ext_resource type="Script" path="res://resource_scripts/quarry_slot.gd" id="7_t6ifu"]
+
+[sub_resource type="Resource" id="Resource_wodwx"]
+script = ExtResource("2_soh4v")
+amount = 0
+name = "Duskenite"
+icon = ExtResource("2_8ae17")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_acea8"]
+script = ExtResource("2_soh4v")
+amount = 0
+name = "Jarosite"
+icon = ExtResource("4_tadpu")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_3g42h"]
+script = ExtResource("2_soh4v")
+amount = 0
+name = "Moldavite"
+icon = ExtResource("5_ijxfi")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_t56mn"]
+script = ExtResource("2_soh4v")
+amount = 0
+name = "Pallasite"
+icon = ExtResource("6_hxi58")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_brx0j"]
+script = ExtResource("2_soh4v")
+amount = 0
+name = "Zyronite"
+icon = ExtResource("7_f3act")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_26ls3"]
+script = ExtResource("7_t6ifu")
+default_title = "Empty Quarry Slot"
+is_empty = true
+title = "Quarry Title"
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_3gaij"]
+script = ExtResource("7_t6ifu")
+default_title = "Empty Quarry Slot"
+is_empty = true
+title = "Quarry Title"
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_qxf7o"]
+script = ExtResource("7_t6ifu")
+default_title = "Empty Quarry Slot"
+is_empty = true
+title = "Quarry Title"
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[resource]
+script = ExtResource("1_655d7")
+balance = 10
+quarry_slot_list = Array[ExtResource("7_t6ifu")]([SubResource("Resource_26ls3"), SubResource("Resource_3gaij"), SubResource("Resource_qxf7o")])
+quarry_count = 0
+mineral_list = Array[ExtResource("2_soh4v")]([SubResource("Resource_wodwx"), SubResource("Resource_acea8"), SubResource("Resource_3g42h"), SubResource("Resource_t56mn"), SubResource("Resource_brx0j")])

@@ -1,0 +1,456 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7tte2s8i6ccv"]
+
+[ext_resource type="Shader" path="res://assets/sliding_background.gdshader" id="1_a60u3"]
+[ext_resource type="Texture2D" uid="uid://b0vsnswtmb456" path="res://assets/background_pattern.png" id="2_rtkvu"]
+[ext_resource type="Theme" uid="uid://d0f0x0fybldkg" path="res://prototypes/test_resources/test_theme.tres" id="3_niec7"]
+[ext_resource type="Texture2D" uid="uid://bik7w23iywrdd" path="res://assets/mineral_container.png" id="4_mn3hc"]
+[ext_resource type="Texture2D" uid="uid://d2k0ikkc2128v" path="res://assets/mineral_icons/duskenite.png" id="5_8lcvp"]
+[ext_resource type="Texture2D" uid="uid://rt7hw0cbt2oe" path="res://assets/mineral_icons/jarosite.png" id="6_ycjd7"]
+[ext_resource type="Texture2D" uid="uid://dkw1i77pyvv4p" path="res://assets/mineral_icons/moldavite.png" id="7_0pqi5"]
+[ext_resource type="Texture2D" uid="uid://dnsxjnp2smktw" path="res://assets/mineral_icons/pallasite.png" id="8_by87f"]
+[ext_resource type="Texture2D" uid="uid://lxiwdknwg8gq" path="res://assets/mineral_icons/zyronite.png" id="9_nvpqu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcvul"]
+shader = ExtResource("1_a60u3")
+shader_parameter/bg_color = Color(0.466667, 0.552941, 0.623529, 1)
+shader_parameter/pattern_color = null
+shader_parameter/pattern_size = 256.0
+shader_parameter/pattern_sampler = ExtResource("2_rtkvu")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bcvul")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.513726, 0.513726, 0.513726, 1)
+
+[node name="PlayerInfoContainerUI" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 621.0
+offset_bottom = 169.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("3_niec7")
+theme_override_constants/separation = 1
+metadata/_edit_group_ = true
+
+[node name="BalanceLabel" type="Label" parent="PlayerInfoContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+theme_type_variation = &"balance_info_label"
+text = "Balance"
+
+[node name="PlayerBalanceInfoUI" type="HBoxContainer" parent="PlayerInfoContainerUI"]
+layout_mode = 2
+
+[node name="BalanceAmount" type="Label" parent="PlayerInfoContainerUI/PlayerBalanceInfoUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+theme = ExtResource("3_niec7")
+theme_type_variation = &"balance_info_label"
+text = "10"
+
+[node name="CurrencyName" type="Label" parent="PlayerInfoContainerUI/PlayerBalanceInfoUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+theme_type_variation = &"balance_info_label"
+text = "Stellar Credits
+"
+
+[node name="ObjectiveLabel" type="Label" parent="PlayerInfoContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "OBJECTIVE:
+To win game, collect and hold all possible minerals at one time."
+
+[node name="MineralCollection" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 536.0
+offset_top = 15.0
+offset_right = 872.0
+offset_bottom = 79.0
+scale = Vector2(1.8, 1.8)
+theme = ExtResource("3_niec7")
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="MineralSlot" type="TextureRect" parent="MineralCollection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+texture = ExtResource("4_mn3hc")
+
+[node name="Duskenite" type="Sprite2D" parent="MineralCollection/MineralSlot"]
+texture = ExtResource("5_8lcvp")
+offset = Vector2(32, 32)
+
+[node name="Label" type="Label" parent="MineralCollection/MineralSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_niec7")
+theme_type_variation = &"inventory_quantity_label"
+text = "0"
+
+[node name="MineralSlot2" type="TextureRect" parent="MineralCollection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+texture = ExtResource("4_mn3hc")
+
+[node name="Jarosite" type="Sprite2D" parent="MineralCollection/MineralSlot2"]
+texture = ExtResource("6_ycjd7")
+offset = Vector2(32, 32)
+
+[node name="Label" type="Label" parent="MineralCollection/MineralSlot2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_niec7")
+theme_type_variation = &"inventory_quantity_label"
+text = "0"
+
+[node name="MineralSlot3" type="TextureRect" parent="MineralCollection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+texture = ExtResource("4_mn3hc")
+
+[node name="Moldavite" type="Sprite2D" parent="MineralCollection/MineralSlot3"]
+texture = ExtResource("7_0pqi5")
+offset = Vector2(32, 32)
+
+[node name="Label" type="Label" parent="MineralCollection/MineralSlot3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_niec7")
+theme_type_variation = &"inventory_quantity_label"
+text = "0"
+
+[node name="MineralSlot4" type="TextureRect" parent="MineralCollection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+texture = ExtResource("4_mn3hc")
+
+[node name="Pallasite" type="Sprite2D" parent="MineralCollection/MineralSlot4"]
+texture = ExtResource("8_by87f")
+offset = Vector2(32, 32)
+
+[node name="Label" type="Label" parent="MineralCollection/MineralSlot4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_niec7")
+theme_type_variation = &"inventory_quantity_label"
+text = "0"
+
+[node name="MineralSlot5" type="TextureRect" parent="MineralCollection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+texture = ExtResource("4_mn3hc")
+
+[node name="Zyronite" type="Sprite2D" parent="MineralCollection/MineralSlot5"]
+texture = ExtResource("9_nvpqu")
+offset = Vector2(32, 32)
+
+[node name="Label" type="Label" parent="MineralCollection/MineralSlot5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("3_niec7")
+theme_type_variation = &"inventory_quantity_label"
+text = "0"
+
+[node name="MineSlotsUI" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -562.0
+offset_top = 138.0
+offset_right = 548.0
+offset_bottom = 359.0
+grow_horizontal = 2
+theme = ExtResource("3_niec7")
+metadata/_edit_group_ = true
+
+[node name="FirstSlotUI" type="VBoxContainer" parent="MineSlotsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+
+[node name="MineNameLabel" type="Label" parent="MineSlotsUI/FirstSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Empty Mine Slot"
+horizontal_alignment = 1
+
+[node name="DigInButton" type="Button" parent="MineSlotsUI/FirstSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Mine +1"
+
+[node name="MiningProgressBar" type="ProgressBar" parent="MineSlotsUI/FirstSlotUI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 27)
+layout_mode = 2
+theme = ExtResource("3_niec7")
+value = 100.0
+show_percentage = false
+
+[node name="AddMinerButton" type="Button" parent="MineSlotsUI/FirstSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Add Miner"
+
+[node name="UpgradeMineButton" type="Button" parent="MineSlotsUI/FirstSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Upgrade Mine"
+
+[node name="SellMineButton" type="Button" parent="MineSlotsUI/FirstSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Sell Mine"
+
+[node name="SecondSlotUI" type="VBoxContainer" parent="MineSlotsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+
+[node name="MineNameLabel2" type="Label" parent="MineSlotsUI/SecondSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Empty Mine Slot"
+horizontal_alignment = 1
+
+[node name="DigInButton2" type="Button" parent="MineSlotsUI/SecondSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Mine +1"
+
+[node name="MiningProgressBar2" type="ProgressBar" parent="MineSlotsUI/SecondSlotUI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 27)
+layout_mode = 2
+theme = ExtResource("3_niec7")
+value = 51.14
+show_percentage = false
+
+[node name="AddMinerButton2" type="Button" parent="MineSlotsUI/SecondSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Add Miner"
+
+[node name="UpgradeMineButton2" type="Button" parent="MineSlotsUI/SecondSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Upgrade Mine"
+
+[node name="SellMineButton2" type="Button" parent="MineSlotsUI/SecondSlotUI"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Sell Mine"
+
+[node name="ThirdSlotUI" type="VBoxContainer" parent="MineSlotsUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+
+[node name="MineNameLabel3" type="Label" parent="MineSlotsUI/ThirdSlotUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Empty Mine Slot"
+horizontal_alignment = 1
+
+[node name="DigInButton3" type="Button" parent="MineSlotsUI/ThirdSlotUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Mine +1"
+
+[node name="MiningProgressBar3" type="ProgressBar" parent="MineSlotsUI/ThirdSlotUI"]
+custom_minimum_size = Vector2(2.08165e-12, 27)
+layout_mode = 2
+theme = ExtResource("3_niec7")
+show_percentage = false
+
+[node name="AddMinerButton3" type="Button" parent="MineSlotsUI/ThirdSlotUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Add Miner"
+
+[node name="UpgradeMineButton3" type="Button" parent="MineSlotsUI/ThirdSlotUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Upgrade Mine"
+
+[node name="SellMineButton3" type="Button" parent="MineSlotsUI/ThirdSlotUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Sell Mine"
+
+[node name="MarketContainerUI" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -559.0
+offset_top = -269.0
+offset_right = 550.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_niec7")
+metadata/_edit_group_ = true
+
+[node name="MarketNameLabel" type="Label" parent="MarketContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Interstellar Market"
+horizontal_alignment = 1
+
+[node name="MineralList" type="Label" parent="MarketContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Minerals 
+"
+horizontal_alignment = 1
+
+[node name="AvailableMineralList" type="HBoxContainer" parent="MarketContainerUI"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_niec7")
+
+[node name="DuskeniteButton" type="Button" parent="MarketContainerUI/AvailableMineralList"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Duskenite"
+
+[node name="JarositeButton" type="Button" parent="MarketContainerUI/AvailableMineralList"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Jarosite"
+
+[node name="MoldaviteButton" type="Button" parent="MarketContainerUI/AvailableMineralList"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Moldavite"
+
+[node name="PallasiteButton" type="Button" parent="MarketContainerUI/AvailableMineralList"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Pallasite"
+
+[node name="ZyroniteButton" type="Button" parent="MarketContainerUI/AvailableMineralList"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Zyronite"
+
+[node name="SellChosenMineral" type="HBoxContainer" parent="MarketContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+
+[node name="SelectedMineral" type="Label" parent="MarketContainerUI/SellChosenMineral"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Selected Item"
+horizontal_alignment = 1
+
+[node name="SellMineralButton" type="Button" parent="MarketContainerUI/SellChosenMineral"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sell
+"
+
+[node name="QuarryList" type="Label" parent="MarketContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+text = "Quarries "
+horizontal_alignment = 1
+
+[node name="AvailableQuarryList" type="HBoxContainer" parent="MarketContainerUI"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_niec7")
+
+[node name="Duskenite" type="Button" parent="MarketContainerUI/AvailableQuarryList"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Duskenite Quarry"
+
+[node name="Jarosite" type="Button" parent="MarketContainerUI/AvailableQuarryList"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jarosite Quarry"
+
+[node name="Moldavite" type="Button" parent="MarketContainerUI/AvailableQuarryList"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Moldavite Quarry
+"
+
+[node name="Pallasite" type="Button" parent="MarketContainerUI/AvailableQuarryList"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pallasite Quarry"
+
+[node name="Zyronite" type="Button" parent="MarketContainerUI/AvailableQuarryList"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Zyronite Quarry
+"
+
+[node name="BuyChosenQuarry" type="HBoxContainer" parent="MarketContainerUI"]
+layout_mode = 2
+theme = ExtResource("3_niec7")
+
+[node name="SelectedQuarry" type="Label" parent="MarketContainerUI/BuyChosenQuarry"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Selected Item"
+horizontal_alignment = 1
+
+[node name="BuyQuarryButton" type="Button" parent="MarketContainerUI/BuyChosenQuarry"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_niec7")
+text = "Buy"

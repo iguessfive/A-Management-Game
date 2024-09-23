@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3 uid="uid://bitobjk8qg7ka"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_p4et5"]
+[ext_resource type="PackedScene" uid="uid://6lafqg46o07d" path="res://scenes/quarry_slot_ui.tscn" id="2_30uly"]
+[ext_resource type="Resource" uid="uid://cpwqm8j5d0dob" path="res://resources/player_data.tres" id="2_qk0fa"]
+[ext_resource type="Resource" uid="uid://b8y26n0ak1jbx" path="res://resources/available_quarry_data.tres" id="3_p6rxj"]
+[ext_resource type="Texture2D" uid="uid://d2k0ikkc2128v" path="res://assets/mineral_icons/duskenite.png" id="4_3daa5"]
+[ext_resource type="PackedScene" uid="uid://bqgm2r6q0dtjw" path="res://scenes/balance_ui.tscn" id="4_u1w6d"]
+[ext_resource type="Texture2D" uid="uid://rt7hw0cbt2oe" path="res://assets/mineral_icons/jarosite.png" id="5_t8dkh"]
+[ext_resource type="Texture2D" uid="uid://dkw1i77pyvv4p" path="res://assets/mineral_icons/moldavite.png" id="6_d2ufs"]
+[ext_resource type="Texture2D" uid="uid://dnsxjnp2smktw" path="res://assets/mineral_icons/pallasite.png" id="7_pqrsb"]
+[ext_resource type="Texture2D" uid="uid://lxiwdknwg8gq" path="res://assets/mineral_icons/zyronite.png" id="8_kdqpa"]
+[ext_resource type="PackedScene" uid="uid://dvnej83g3nfdd" path="res://scenes/mineral_list_ui.tscn" id="11_8ft1u"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p4et5")
+player_data = ExtResource("2_qk0fa")
+quarry_data = ExtResource("3_p6rxj")
+
+[node name="GameMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BalanceUI" parent="GameMarginContainer" instance=ExtResource("4_u1w6d")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MineralListUI" parent="GameMarginContainer" instance=ExtResource("11_8ft1u")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MineSlotHBoxUI" type="HBoxContainer" parent="GameMarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="QuarrySlotUI" parent="GameMarginContainer/MineSlotHBoxUI" instance=ExtResource("2_30uly")]
+layout_mode = 2
+
+[node name="QuarrySlotUI2" parent="GameMarginContainer/MineSlotHBoxUI" instance=ExtResource("2_30uly")]
+layout_mode = 2
+
+[node name="QuarrySlotUI3" parent="GameMarginContainer/MineSlotHBoxUI" instance=ExtResource("2_30uly")]
+layout_mode = 2
+
+[node name="MarketVBoxDisplay" type="VBoxContainer" parent="GameMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarketTitleLabel" type="Label" parent="GameMarginContainer/MarketVBoxDisplay"]
+layout_mode = 2
+text = "Astro Mart"
+horizontal_alignment = 1
+
+[node name="MarketMineralHBoxContainer" type="HBoxContainer" parent="GameMarginContainer/MarketVBoxDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DuskeniteButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MineralImage" type="Sprite2D" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer/DuskeniteButton"]
+position = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_3daa5")
+
+[node name="JarositeButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MineralImage" type="Sprite2D" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer/JarositeButton"]
+position = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_t8dkh")
+
+[node name="MoldaviteButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MineralImage" type="Sprite2D" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer/MoldaviteButton"]
+position = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_d2ufs")
+
+[node name="PallasiteButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MineralImage" type="Sprite2D" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer/PallasiteButton"]
+position = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_pqrsb")
+
+[node name="ZyroniteButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MineralImage" type="Sprite2D" parent="GameMarginContainer/MarketVBoxDisplay/MarketMineralHBoxContainer/ZyroniteButton"]
+position = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_kdqpa")
+
+[node name="SelectedMineralLabel" type="Label" parent="GameMarginContainer/MarketVBoxDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Selected a Mineral"
+horizontal_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="GameMarginContainer/MarketVBoxDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Price"
+horizontal_alignment = 1
+
+[node name="BuyQuarryButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy Quarry"
+
+[node name="SellMineralButton" type="Button" parent="GameMarginContainer/MarketVBoxDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sell Mineral"

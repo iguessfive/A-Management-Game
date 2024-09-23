@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dns820x3nsbjh"]
+
+[ext_resource type="Script" path="res://scripts/mineral_ui.gd" id="1_k54x3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx131"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjo65"]
+font_size = 20
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MineralUI" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sx131")
+script = ExtResource("1_k54x3")
+
+[node name="IconSprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
+offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="AmountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "0"
+label_settings = SubResource("LabelSettings_bjo65")
+horizontal_alignment = 1
+vertical_alignment = 1

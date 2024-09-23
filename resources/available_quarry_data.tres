@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="QuarryCollection" load_steps=19 format=3 uid="uid://b8y26n0ak1jbx"]
+
+[ext_resource type="Script" path="res://resource_scripts/quarry_collection.gd" id="1_a6ml6"]
+[ext_resource type="Script" path="res://resource_scripts/quarry.gd" id="1_cyb4e"]
+[ext_resource type="Texture2D" uid="uid://d2k0ikkc2128v" path="res://assets/mineral_icons/duskenite.png" id="1_k62th"]
+[ext_resource type="Script" path="res://resource_scripts/mineral.gd" id="2_03yso"]
+[ext_resource type="Texture2D" uid="uid://rt7hw0cbt2oe" path="res://assets/mineral_icons/jarosite.png" id="4_ehcu5"]
+[ext_resource type="Texture2D" uid="uid://dkw1i77pyvv4p" path="res://assets/mineral_icons/moldavite.png" id="5_p32j0"]
+[ext_resource type="Texture2D" uid="uid://dnsxjnp2smktw" path="res://assets/mineral_icons/pallasite.png" id="6_3bbxe"]
+[ext_resource type="Texture2D" uid="uid://lxiwdknwg8gq" path="res://assets/mineral_icons/zyronite.png" id="7_hplas"]
+
+[sub_resource type="Resource" id="Resource_kgcyh"]
+script = ExtResource("2_03yso")
+name = "Duskenite"
+icon = ExtResource("1_k62th")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_0c2wf"]
+script = ExtResource("1_cyb4e")
+title = "Duskenite Quarry"
+mineral = SubResource("Resource_kgcyh")
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_gj4yu"]
+script = ExtResource("2_03yso")
+name = "Jarosite"
+icon = ExtResource("4_ehcu5")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_b1vs7"]
+script = ExtResource("1_cyb4e")
+title = "Jarosite Quarry"
+mineral = SubResource("Resource_gj4yu")
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_w5gyo"]
+script = ExtResource("2_03yso")
+name = "Moldavite"
+icon = ExtResource("5_p32j0")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_4qr05"]
+script = ExtResource("1_cyb4e")
+title = "Moldavite Quarry"
+mineral = SubResource("Resource_w5gyo")
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_vp2yg"]
+script = ExtResource("2_03yso")
+name = "Pallasite"
+icon = ExtResource("6_3bbxe")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_gw1h5"]
+script = ExtResource("1_cyb4e")
+title = "Pallasite Quarry"
+mineral = SubResource("Resource_vp2yg")
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_mnqsh"]
+script = ExtResource("2_03yso")
+name = "Zyronite"
+icon = ExtResource("7_hplas")
+sell_price = 2
+
+[sub_resource type="Resource" id="Resource_g1bwh"]
+script = ExtResource("1_cyb4e")
+title = "Zyronite Quarry"
+mineral = SubResource("Resource_mnqsh")
+dig_rate = 1
+dig_duration = 2.0
+buy_price = 2
+sell_price = 2
+
+[resource]
+script = ExtResource("1_a6ml6")
+quarry_collection = Array[ExtResource("1_cyb4e")]([SubResource("Resource_0c2wf"), SubResource("Resource_b1vs7"), SubResource("Resource_4qr05"), SubResource("Resource_gw1h5"), SubResource("Resource_g1bwh")])

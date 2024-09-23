@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvnej83g3nfdd"]
+
+[ext_resource type="Script" path="res://scripts/mineral_list_ui.gd" id="1_q25p3"]
+[ext_resource type="PackedScene" uid="uid://dns820x3nsbjh" path="res://scenes/mineral_ui.tscn" id="2_b8rup"]
+
+[node name="MineralListUI" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("1_q25p3")
+
+[node name="DuskeniteUI" parent="." instance=ExtResource("2_b8rup")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="JarositeUI" parent="." instance=ExtResource("2_b8rup")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MoldaviteUI" parent="." instance=ExtResource("2_b8rup")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PallasiteUI" parent="." instance=ExtResource("2_b8rup")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ZyroniteUI" parent="." instance=ExtResource("2_b8rup")]
+unique_name_in_owner = true
+layout_mode = 2

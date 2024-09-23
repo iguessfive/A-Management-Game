@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqgm2r6q0dtjw"]
+
+[ext_resource type="Script" path="res://scripts/balance_ui.gd" id="1_xyak0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nn6em"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pndng"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujnf8"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_3maga"]
+font_size = 20
+
+[node name="BalanceUI" type="PanelContainer"]
+offset_right = 142.0
+offset_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nn6em")
+script = ExtResource("1_xyak0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DisplayInfoLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Player Balance"
+label_settings = SubResource("LabelSettings_pndng")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="AmountLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+label_settings = SubResource("LabelSettings_ujnf8")
+horizontal_alignment = 1
+
+[node name="CurrencyLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Astro Units"
+label_settings = SubResource("LabelSettings_3maga")
+horizontal_alignment = 1
